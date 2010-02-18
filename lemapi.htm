@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>LemAPI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<h2>LemAPI</h2>
+<hr>
+<p>Matroska Writer &amp; Plugins <a href="matroska_writer.zip">Binary</a><br>
+  <a href="LemAPI_src.zip">Source Code for Writer &amp; Plugins</a></p>
+<table border="1">
+<tr>
+    <td>C example header for the Reader Plugin</td></tr>
+  <tr>
+    <td><p>// Stuff to ask the Reader Plugin using the LemAPI </p>
+<p>/// \param writer_version The version of the writer loading the plugin<br>
+  /// \return A XML document with the plugin version, name, supported file types, 
+  and any options<br>
+  char *GetLemAPIVersion(int writer_version);<br>
+  /// You should return a XML document following this format<br>
+  /*<br>
+  std::string versionXml;<br>
+  versionXml = "&lt;?xml version=\"1.0\" ?&gt;";<br>
+  versionXml +=
+  "&lt;LemAPI version=
+    \"2\"&gt;";<br>
+  versionXml +=
+    "&lt;Plugin&gt;";<br>
+  versionXml += "&lt;Name&gt;MPA Plugin&lt;/Name&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;Author&gt;Jory Stone using Steve Lhomme's MPA Classes&lt;/Author&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;URL&gt;http://www.somewhere.com/&lt;/URL&gt;";<br>
+  versionXml += "&lt;Version&gt;1.00&lt;/Version&gt;"; <br>
+  versionXml += "&lt;SupportedFileTypes&gt;";<br>
+  versionXml += "&lt;FileType&gt;";<br>
+  versionXml += "&lt;Name&gt;MPEG Audio Layer 3&lt;/Name&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;Ext&gt;mp3&lt;/Ext&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;/FileType&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;FileType&gt;";<br>
+  versionXml += "&lt;Name&gt;MPEG Audio Layer 2&lt;/Name&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;Ext&gt;mp2&lt;/Ext&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;/FileType&gt;";<br>
+  versionXml +=
+   
+   
+    "&lt;/SupportedFileTypes&gt;";<br>
+  // Here you supply your supported options, names, types (Integer, String, Boolean), 
+  and supply a short description about the option<br>
+  versionXml += "&lt;Option name=\"Copy Info Frames\" desc=\"If 
+  set to true Info Frames will be copied\" type=\"Boolean\"&gt;True&lt;/Option&gt;";<br>
+  versionXml += "&lt;/Plugin&gt;";<br>
+  versionXml += "&lt;/LemAPI&gt;";<br>
+  */</p>
+<p>/// \param plugin_settings A XML document is passed with settings returned 
+  by GetLemAPIVersion (Not currently implemented)<br>
+  /// \return A pointer to the plugin data<br>
+  void *CreateLemAPIProcess(char *plugin_settings);<br>
+  /// An example XML document you would receive is this<br>
+  /*<br>
+  std::string versionXml;<br>
+  versionXml = "&lt;?xml version=\"1.0\" ?&gt;";<br>
+  versionXml +=
+  "&lt;LemAPI version=
+    \"2\"&gt;";<br>
+  versionXml +=
+    "&lt;Plugin&gt;";<br>
+  versionXml += "&lt;Option name=\"Copy Info Frames\" type=\"Boolean\"&gt;False&lt;/Option&gt;";<br>
+  versionXml += "&lt;/Plugin&gt;";<br>
+  versionXml += "&lt;/LemAPI&gt;";<br>
+  */</p>
+<p>/// \param using_process The pointer to the plugin data returned by CreateLemAPIProcess<br>
+  /// \return 0 if ok<br>
+  int ReadFileHeader(void *using_process, char *filename);</p>
+      <p>/// \param process_to_read The pointer to the plugin data returned by CreateLemAPIProcess<br>
+  /// \return A XML document<br>
+  char* GetTrackInfoXML_ASCII(void *process_to_read);<br>
+  /// You should return a XML document following this format<br>
+  /*<br>
+  std::string trackXml;<br>
+  trackXml = "&lt;?xml version=\"1.0\"?&gt;";<br>
+  trackXml +=
+  "&lt;LemAPI version= \"2\"&gt;";<br>
+  trackXml +=
+    "&lt;TrackList&gt;";<br>
+  // Start Example for a mp3 audio track<br>
+  trackXml += "&lt;Track&gt;";<br>
+trackXml +=
+ 
+ 
+    "&lt;TrackType&gt;audio&lt;/TrackType&gt;";<br>
+  trackXml += "&lt;CodecID&gt;";<br>
+  trackXml += "A_MPEG/L3"; //&lt; This will obivously depend on your 
+  audio type<br>
+  trackXml +=
+   
+   
+    "&lt;/CodecID&gt;";<br>
+  // The CodecPrivate isn't used for mp3 but for other formats, such as A_MS/ACM 
+  it's needed<br>
+trackXml += 
+"&lt;CodecPrivate encoding=   \"base64\"&gt;"; <br>
+  trackXml +=
+    "ASFBDFHDRYDF"; //&lt; A Base64 encoded string, (this 
+  example string isn't valid :P)<br>
+  trackXml += "&lt;/CodecPrivate&gt;"; <br>
+  trackXml += "&lt;Duration&gt;"; <br>
+  trackXml += "1000"; //&lt; Length of track in ms<br>
+  trackXml += "&lt;/Duration&gt;";<br>
+  trackXml += "&lt;Audio&gt;";<br>
+  trackXml += "&lt;SampleRate&gt;"; <br>
+  trackXml += "44100";<br>
+  trackXml += "&lt;/SampleRate&gt;";<br>
+  trackXml +=
+   
+   
+    "&lt;Channels&gt;"; <br>
+  trackXml += "2";<br>
+  trackXml += "&lt;/Channels&gt;";<br>
+  trackXml += "&lt;BitDepth&gt;"; <br>
+  trackXml += "16";<br>
+  trackXml +=
+   
+   
+    "&lt;/BitDepth&gt;";<br>
+  trackXml +=
+   
+   
+    "&lt;AvgBitrate&gt;"; <br>
+  trackXml += "56"; //&lt; Preferably in kilobits<br>
+  trackXml +=
+   
+   
+    "&lt;/AvgBitrate&gt;";<br>
+  trackXml +=
+   
+   
+    "&lt;/Audio&gt;";<br>
+  trackXml += "&lt;/Track&gt;";<br>
+  // End Example for a mp3 audio track<br>
+  // Start Video Track example<br>
+  trackXml += "&lt;Track&gt;";<br>
+trackXml +=
+ 
+ 
+    "&lt;TrackType&gt;video&lt;/TrackType&gt;";<br>
+  trackXml += "&lt;CodecID&gt;";<br>
+  trackXml += "V_MPEG4"; //&lt; This will obivously depend on your video 
+  type<br>
+  trackXml +=
+   
+   
+    "&lt;/CodecID&gt;";<br>
+  // The CodecPrivate is used for V_MS/FOURCC/VFW<br>
+  trackXml += "&lt;CodecPrivate 
+      encoding=\"base64\"&gt;";<br>      
+  trackXml += "ASFBDFHDRYDF"; //&lt; A Base64 encoded string, (this 
+  example string isn't valid :P)<br>
+  trackXml +=
+    "&lt;/CodecPrivate&gt;"; <br>
+  trackXml +=
+    "&lt;Duration&gt;"; <br>
+  trackXml += "1000"; //&lt; Length of track in ms<br>
+  trackXml +=
+    "&lt;/Duration&gt;";<br>
+  trackXml +=
+    "&lt;Video&gt;";<br>
+  trackXml += "&lt;Width&gt;"; //&lt; Also X<br>
+  trackXml += "640";<br>
+  trackXml +=
+   
+    "&lt;/Width&gt;"; <br>
+  trackXml += "&lt;Height&gt;"; //&lt; Also Y<br>
+  trackXml += "480";<br>
+  trackXml +=
+    "&lt;/Height&gt;"; <br>
+  trackXml +=
+    "&lt;DisplayWidth&gt;";<br>
+  trackXml += "640";<br>
+  trackXml +=
+   
+    "&lt;/DisplayWidth&gt;"; <br>
+  trackXml +=
+   
+    "&lt;DisplayHeight&gt;";<br>
+  trackXml += "480";<br>
+  trackXml +=
+    "&lt;/DisplayHeight&gt;"; <br>
+  // The frame-rate is only here because most other formats are based on a constant 
+  framerate<br>
+  // Matroska is VFR and so it only uses the Framerate to calcualate the DefaultDuration 
+  for each block (or frame)<br>
+  trackXml += "&lt;FrameRate&gt;";<br>
+  trackXml += "29.97";<br>
+  trackXml += "&lt;/FrameRate&gt;"; <br>
+  trackXml +=
+    "&lt;ColorDepth&gt;";<br>
+  trackXml += "24";<br>
+  trackXml +=
+   
+    "&lt;/ColorDepth&gt;"; <br>
+  // The Cache settings are used with B-Frames, I believe<br>
+  trackXml +=
+   
+    "&lt;CacheMin&gt;";<br>
+  trackXml += "480";<br>
+  trackXml +=
+    "&lt;/CacheMin&gt;"; <br>
+  trackXml +=
+    "&lt;CacheMax&gt;";<br>
+  trackXml += "480";<br>
+  trackXml +=
+   
+    "&lt;/CacheMax&gt;"; <br>
+  trackXml +=
+   
+    "&lt;/Video&gt;";<br>
+  trackXml += "&lt;/Track&gt;"; <br>
+  // End Video Track example<br>
+  trackXml += "&lt;/TrackList&gt;";<br>
+  trackXml += "&lt;/LemAPI&gt;";<br>
+*/</p>
+      <p>struct DataPacket {<br>
+  uint8 TrackNumber;<br>
+  uint32 StartTimecode;<br>
+  uint32 EndTimecode;<br>
+  uint32 dataLength;<br>
+  binary *data;<br>
+  uint32 prevReference;<br>
+  uint32 nextReference;<br>
+  };</p>
+<p>/// \param process_to_read The pointer to the plugin data returned by CreateLemAPIProcess<br>
+  /// \return A DataPacket * , memory will be freed with FreeDataFrame<br>
+  DataPacket *GetNextDataFrame(void *process_to_read);</p>
+<p>/// \param packet_to_free The DataPacket that was returned by GetNextDataFrame() 
+  and needs to be freed <br>
+  /// \return 0 if ok<br>
+  int FreeDataFrame(DataPacket *packet_to_free);</p>
+<p>/// \param process_to_close The pointer to the plugin data returned by CreateLemAPIProcess<br>
+  /// \return 0 if ok<br>
+  int DeleteLemAPIProcess(void *process_to_close);</p>
+</td>
+  </tr>
+</table>
+<p>Here's an example of the mp3 plugin being used.</p>
+<ol>
+  <li>When the Writer application first starts it calls 
+  GetLemAPIVersion() on all the .dll's in the plugin folder. 
+  <li>Mp3 plugin's GetLemAPIVersion() is called, the plugin returns the following 
+    XML document 
+    <table border="1">
+      <tr> 
+        <td>&amp;test</td>
+      </tr>
+    </table>
+  <li>When the Writer application is asked to convert a file 
+  it looks at the plugin list and chooses the one that supports the input file 
+  type. 
+  <li>Writer application calls CreateLemAPIProcess() on the 
+  mp3 plugin, Plugins returns the memory address to a newly created plugin data 
+  object (only used internally by the plugin to keep track of things inbetween 
+  function calls) 
+  <li></li>
+</ol>
+<hr>
+<p align="right">© 2003 Jory Stone (lemapi@jory.cjb.net)</p>
+</body>
+</html>

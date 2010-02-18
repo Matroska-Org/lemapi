@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LemAPI Matroska Writer", "matroska_writer.vcproj", "{062A66E2-350A-4F20-8F21-A28C0FCD32CB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libebml", "..\..\libebml\make\vc7\lib\libebml.vcproj", "{18E738F7-4E94-4C52-93D4-A6D247625C02}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmatroska", "..\..\libmatroska\make\vc7\lib\static\libmatroska.vcproj", "{8668969B-C17F-4023-8311-FDA2C601822A}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{062A66E2-350A-4F20-8F21-A28C0FCD32CB}.0 = {8668969B-C17F-4023-8311-FDA2C601822A}
+		{8668969B-C17F-4023-8311-FDA2C601822A}.0 = {18E738F7-4E94-4C52-93D4-A6D247625C02}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{062A66E2-350A-4F20-8F21-A28C0FCD32CB}.Debug.ActiveCfg = Debug|Win32
+		{062A66E2-350A-4F20-8F21-A28C0FCD32CB}.Debug.Build.0 = Debug|Win32
+		{062A66E2-350A-4F20-8F21-A28C0FCD32CB}.Release.ActiveCfg = Release|Win32
+		{062A66E2-350A-4F20-8F21-A28C0FCD32CB}.Release.Build.0 = Release|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Debug.ActiveCfg = Debug|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Debug.Build.0 = Debug|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Release.ActiveCfg = Release|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Release.Build.0 = Release|Win32
+		{8668969B-C17F-4023-8311-FDA2C601822A}.Debug.ActiveCfg = Debug|Win32
+		{8668969B-C17F-4023-8311-FDA2C601822A}.Debug.Build.0 = Debug|Win32
+		{8668969B-C17F-4023-8311-FDA2C601822A}.Release.ActiveCfg = Release|Win32
+		{8668969B-C17F-4023-8311-FDA2C601822A}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

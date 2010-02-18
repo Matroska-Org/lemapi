@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Plugin", "mpa_input_plugin.vcproj", "{E28AC04C-C56F-47FF-8371-AB726AB7C5C4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libebml", "..\..\libebml\make\vc7\lib\libebml.vcproj", "{18E738F7-4E94-4C52-93D4-A6D247625C02}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{E28AC04C-C56F-47FF-8371-AB726AB7C5C4}.0 = {18E738F7-4E94-4C52-93D4-A6D247625C02}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E28AC04C-C56F-47FF-8371-AB726AB7C5C4}.Debug.ActiveCfg = Debug|Win32
+		{E28AC04C-C56F-47FF-8371-AB726AB7C5C4}.Debug.Build.0 = Debug|Win32
+		{E28AC04C-C56F-47FF-8371-AB726AB7C5C4}.Release.ActiveCfg = Release|Win32
+		{E28AC04C-C56F-47FF-8371-AB726AB7C5C4}.Release.Build.0 = Release|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Debug.ActiveCfg = Debug|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Debug.Build.0 = Debug|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Release.ActiveCfg = Release|Win32
+		{18E738F7-4E94-4C52-93D4-A6D247625C02}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

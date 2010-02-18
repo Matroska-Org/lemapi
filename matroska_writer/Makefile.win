@@ -1,0 +1,176 @@
+# Project: LemAPI Matroska Writer
+# Makefile created by Dev-C++ 4.9.8.0
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = matroska_writer_private.res
+OBJ  = obj/matroska_writer_gui.o obj/matroska_writer.o obj/Debug.o obj/EbmlBinary.o obj/EbmlContexts.o obj/EbmlCrc32.o obj/EbmlDate.o obj/EbmlElement.o obj/EbmlFloat.o obj/EbmlHead.o obj/EbmlMaster.o obj/EbmlSInteger.o obj/EbmlStream.o obj/EbmlString.o obj/EbmlSubHead.o obj/EbmlUInteger.o obj/EbmlUnicodeString.o obj/EbmlVersion.o obj/EbmlVoid.o obj/IOCallback.o obj/MemIOCallback.o obj/StdIOCallback.o obj/FileKax.o obj/KaxAttached.o obj/KaxAttachements.o obj/KaxBlock.o obj/KaxBlockData.o obj/KaxChapters.o obj/KaxCluster.o obj/KaxClusterData.o obj/KaxContexts.o obj/KaxCues.o obj/KaxCuesData.o obj/KaxInfo.o obj/KaxInfoData.o obj/KaxSeekHead.o obj/KaxSegment.o obj/KaxTag.o obj/KaxTagMulti.o obj/KaxTags.o obj/KaxTrackAudio.o obj/KaxTrackEntryData.o obj/KaxTracks.o obj/KaxTrackVideo.o obj/KaxVersion.o obj/tinyxmlparser.o obj/tinystr.o obj/tinyxml.o obj/tinyxmlerror.o $(RES)
+LINKOBJ  = obj/matroska_writer_gui.o obj/matroska_writer.o obj/Debug.o obj/EbmlBinary.o obj/EbmlContexts.o obj/EbmlCrc32.o obj/EbmlDate.o obj/EbmlElement.o obj/EbmlFloat.o obj/EbmlHead.o obj/EbmlMaster.o obj/EbmlSInteger.o obj/EbmlStream.o obj/EbmlString.o obj/EbmlSubHead.o obj/EbmlUInteger.o obj/EbmlUnicodeString.o obj/EbmlVersion.o obj/EbmlVoid.o obj/IOCallback.o obj/MemIOCallback.o obj/StdIOCallback.o obj/FileKax.o obj/KaxAttached.o obj/KaxAttachements.o obj/KaxBlock.o obj/KaxBlockData.o obj/KaxChapters.o obj/KaxCluster.o obj/KaxClusterData.o obj/KaxContexts.o obj/KaxCues.o obj/KaxCuesData.o obj/KaxInfo.o obj/KaxInfoData.o obj/KaxSeekHead.o obj/KaxSegment.o obj/KaxTag.o obj/KaxTagMulti.o obj/KaxTags.o obj/KaxTrackAudio.o obj/KaxTrackEntryData.o obj/KaxTracks.o obj/KaxTrackVideo.o obj/KaxVersion.o obj/tinyxmlparser.o obj/tinystr.o obj/tinyxml.o obj/tinyxmlerror.o $(RES)
+LIBS =  -L"E:/DEV-CPP/lib" -mwindows -lwxmswu -lstdc++ -lgcc -lodbc32 -lwsock32 -lwinspool -lwinmm -lshell32 -lcomctl32 -lctl3d32 -ladvapi32 -lopengl32 -lglu32 -lole32 -loleaut32 -luuid -s 
+INCS =  -I"E:/DEV-CPP/include"  -I"../../libmatroska/src"  -I"../../libebml/src"  -I"../tinyXML" 
+CXXINCS =  -I"E:/DEV-CPP/include/c++"  -I"E:/DEV-CPP/include/c++/mingw32"  -I"E:/DEV-CPP/include/c++/backward"  -I"E:/DEV-CPP/include"  -I"../../libmatroska/src"  -I"../../libebml/src"  -I"../tinyXML" 
+BIN  = matroska_writer.exe
+CXXFLAGS = $(CXXINCS)-D_X86_=1 -DWIN32 -DWINVER=0x0400 -D__WIN95__ -D__GNUWIN32__ -D__WIN32__ -mthreads -DSTRICT  -D__WXMSW__ -D__WINDOWS__ -Wall -fno-pcc-struct-return -O2 -fno-rtti -fno-exceptions   -fexceptions
+CFLAGS = $(INCS)  -fexceptions
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before matroska_writer.exe all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	$(CPP) $(LINKOBJ) -o "matroska_writer.exe" $(LIBS)
+
+obj/matroska_writer_gui.o: matroska_writer_gui.cpp
+	$(CPP) -c matroska_writer_gui.cpp -o obj/matroska_writer_gui.o $(CXXFLAGS)
+
+obj/matroska_writer.o: matroska_writer.cpp
+	$(CPP) -c matroska_writer.cpp -o obj/matroska_writer.o $(CXXFLAGS)
+
+obj/Debug.o: ../../libebml/src/Debug.cpp
+	$(CPP) -c ../../libebml/src/Debug.cpp -o obj/Debug.o $(CXXFLAGS)
+
+obj/EbmlBinary.o: ../../libebml/src/EbmlBinary.cpp
+	$(CPP) -c ../../libebml/src/EbmlBinary.cpp -o obj/EbmlBinary.o $(CXXFLAGS)
+
+obj/EbmlContexts.o: ../../libebml/src/EbmlContexts.cpp
+	$(CPP) -c ../../libebml/src/EbmlContexts.cpp -o obj/EbmlContexts.o $(CXXFLAGS)
+
+obj/EbmlCrc32.o: ../../libebml/src/EbmlCrc32.cpp
+	$(CPP) -c ../../libebml/src/EbmlCrc32.cpp -o obj/EbmlCrc32.o $(CXXFLAGS)
+
+obj/EbmlDate.o: ../../libebml/src/EbmlDate.cpp
+	$(CPP) -c ../../libebml/src/EbmlDate.cpp -o obj/EbmlDate.o $(CXXFLAGS)
+
+obj/EbmlElement.o: ../../libebml/src/EbmlElement.cpp
+	$(CPP) -c ../../libebml/src/EbmlElement.cpp -o obj/EbmlElement.o $(CXXFLAGS)
+
+obj/EbmlFloat.o: ../../libebml/src/EbmlFloat.cpp
+	$(CPP) -c ../../libebml/src/EbmlFloat.cpp -o obj/EbmlFloat.o $(CXXFLAGS)
+
+obj/EbmlHead.o: ../../libebml/src/EbmlHead.cpp
+	$(CPP) -c ../../libebml/src/EbmlHead.cpp -o obj/EbmlHead.o $(CXXFLAGS)
+
+obj/EbmlMaster.o: ../../libebml/src/EbmlMaster.cpp
+	$(CPP) -c ../../libebml/src/EbmlMaster.cpp -o obj/EbmlMaster.o $(CXXFLAGS)
+
+obj/EbmlSInteger.o: ../../libebml/src/EbmlSInteger.cpp
+	$(CPP) -c ../../libebml/src/EbmlSInteger.cpp -o obj/EbmlSInteger.o $(CXXFLAGS)
+
+obj/EbmlStream.o: ../../libebml/src/EbmlStream.cpp
+	$(CPP) -c ../../libebml/src/EbmlStream.cpp -o obj/EbmlStream.o $(CXXFLAGS)
+
+obj/EbmlString.o: ../../libebml/src/EbmlString.cpp
+	$(CPP) -c ../../libebml/src/EbmlString.cpp -o obj/EbmlString.o $(CXXFLAGS)
+
+obj/EbmlSubHead.o: ../../libebml/src/EbmlSubHead.cpp
+	$(CPP) -c ../../libebml/src/EbmlSubHead.cpp -o obj/EbmlSubHead.o $(CXXFLAGS)
+
+obj/EbmlUInteger.o: ../../libebml/src/EbmlUInteger.cpp
+	$(CPP) -c ../../libebml/src/EbmlUInteger.cpp -o obj/EbmlUInteger.o $(CXXFLAGS)
+
+obj/EbmlUnicodeString.o: ../../libebml/src/EbmlUnicodeString.cpp
+	$(CPP) -c ../../libebml/src/EbmlUnicodeString.cpp -o obj/EbmlUnicodeString.o $(CXXFLAGS)
+
+obj/EbmlVersion.o: ../../libebml/src/EbmlVersion.cpp
+	$(CPP) -c ../../libebml/src/EbmlVersion.cpp -o obj/EbmlVersion.o $(CXXFLAGS)
+
+obj/EbmlVoid.o: ../../libebml/src/EbmlVoid.cpp
+	$(CPP) -c ../../libebml/src/EbmlVoid.cpp -o obj/EbmlVoid.o $(CXXFLAGS)
+
+obj/IOCallback.o: ../../libebml/src/IOCallback.cpp
+	$(CPP) -c ../../libebml/src/IOCallback.cpp -o obj/IOCallback.o $(CXXFLAGS)
+
+obj/MemIOCallback.o: ../../libebml/src/MemIOCallback.cpp
+	$(CPP) -c ../../libebml/src/MemIOCallback.cpp -o obj/MemIOCallback.o $(CXXFLAGS)
+
+obj/StdIOCallback.o: ../../libebml/src/StdIOCallback.cpp
+	$(CPP) -c ../../libebml/src/StdIOCallback.cpp -o obj/StdIOCallback.o $(CXXFLAGS)
+
+obj/FileKax.o: ../../libmatroska/src/FileKax.cpp
+	$(CPP) -c ../../libmatroska/src/FileKax.cpp -o obj/FileKax.o $(CXXFLAGS)
+
+obj/KaxAttached.o: ../../libmatroska/src/KaxAttached.cpp
+	$(CPP) -c ../../libmatroska/src/KaxAttached.cpp -o obj/KaxAttached.o $(CXXFLAGS)
+
+obj/KaxAttachements.o: ../../libmatroska/src/KaxAttachements.cpp
+	$(CPP) -c ../../libmatroska/src/KaxAttachements.cpp -o obj/KaxAttachements.o $(CXXFLAGS)
+
+obj/KaxBlock.o: ../../libmatroska/src/KaxBlock.cpp
+	$(CPP) -c ../../libmatroska/src/KaxBlock.cpp -o obj/KaxBlock.o $(CXXFLAGS)
+
+obj/KaxBlockData.o: ../../libmatroska/src/KaxBlockData.cpp
+	$(CPP) -c ../../libmatroska/src/KaxBlockData.cpp -o obj/KaxBlockData.o $(CXXFLAGS)
+
+obj/KaxChapters.o: ../../libmatroska/src/KaxChapters.cpp
+	$(CPP) -c ../../libmatroska/src/KaxChapters.cpp -o obj/KaxChapters.o $(CXXFLAGS)
+
+obj/KaxCluster.o: ../../libmatroska/src/KaxCluster.cpp
+	$(CPP) -c ../../libmatroska/src/KaxCluster.cpp -o obj/KaxCluster.o $(CXXFLAGS)
+
+obj/KaxClusterData.o: ../../libmatroska/src/KaxClusterData.cpp
+	$(CPP) -c ../../libmatroska/src/KaxClusterData.cpp -o obj/KaxClusterData.o $(CXXFLAGS)
+
+obj/KaxContexts.o: ../../libmatroska/src/KaxContexts.cpp
+	$(CPP) -c ../../libmatroska/src/KaxContexts.cpp -o obj/KaxContexts.o $(CXXFLAGS)
+
+obj/KaxCues.o: ../../libmatroska/src/KaxCues.cpp
+	$(CPP) -c ../../libmatroska/src/KaxCues.cpp -o obj/KaxCues.o $(CXXFLAGS)
+
+obj/KaxCuesData.o: ../../libmatroska/src/KaxCuesData.cpp
+	$(CPP) -c ../../libmatroska/src/KaxCuesData.cpp -o obj/KaxCuesData.o $(CXXFLAGS)
+
+obj/KaxInfo.o: ../../libmatroska/src/KaxInfo.cpp
+	$(CPP) -c ../../libmatroska/src/KaxInfo.cpp -o obj/KaxInfo.o $(CXXFLAGS)
+
+obj/KaxInfoData.o: ../../libmatroska/src/KaxInfoData.cpp
+	$(CPP) -c ../../libmatroska/src/KaxInfoData.cpp -o obj/KaxInfoData.o $(CXXFLAGS)
+
+obj/KaxSeekHead.o: ../../libmatroska/src/KaxSeekHead.cpp
+	$(CPP) -c ../../libmatroska/src/KaxSeekHead.cpp -o obj/KaxSeekHead.o $(CXXFLAGS)
+
+obj/KaxSegment.o: ../../libmatroska/src/KaxSegment.cpp
+	$(CPP) -c ../../libmatroska/src/KaxSegment.cpp -o obj/KaxSegment.o $(CXXFLAGS)
+
+obj/KaxTag.o: ../../libmatroska/src/KaxTag.cpp
+	$(CPP) -c ../../libmatroska/src/KaxTag.cpp -o obj/KaxTag.o $(CXXFLAGS)
+
+obj/KaxTagMulti.o: ../../libmatroska/src/KaxTagMulti.cpp
+	$(CPP) -c ../../libmatroska/src/KaxTagMulti.cpp -o obj/KaxTagMulti.o $(CXXFLAGS)
+
+obj/KaxTags.o: ../../libmatroska/src/KaxTags.cpp
+	$(CPP) -c ../../libmatroska/src/KaxTags.cpp -o obj/KaxTags.o $(CXXFLAGS)
+
+obj/KaxTrackAudio.o: ../../libmatroska/src/KaxTrackAudio.cpp
+	$(CPP) -c ../../libmatroska/src/KaxTrackAudio.cpp -o obj/KaxTrackAudio.o $(CXXFLAGS)
+
+obj/KaxTrackEntryData.o: ../../libmatroska/src/KaxTrackEntryData.cpp
+	$(CPP) -c ../../libmatroska/src/KaxTrackEntryData.cpp -o obj/KaxTrackEntryData.o $(CXXFLAGS)
+
+obj/KaxTracks.o: ../../libmatroska/src/KaxTracks.cpp
+	$(CPP) -c ../../libmatroska/src/KaxTracks.cpp -o obj/KaxTracks.o $(CXXFLAGS)
+
+obj/KaxTrackVideo.o: ../../libmatroska/src/KaxTrackVideo.cpp
+	$(CPP) -c ../../libmatroska/src/KaxTrackVideo.cpp -o obj/KaxTrackVideo.o $(CXXFLAGS)
+
+obj/KaxVersion.o: ../../libmatroska/src/KaxVersion.cpp
+	$(CPP) -c ../../libmatroska/src/KaxVersion.cpp -o obj/KaxVersion.o $(CXXFLAGS)
+
+obj/tinyxmlparser.o: ../tinyXML/tinyxmlparser.cpp
+	$(CPP) -c ../tinyXML/tinyxmlparser.cpp -o obj/tinyxmlparser.o $(CXXFLAGS)
+
+obj/tinystr.o: ../tinyXML/tinystr.cpp
+	$(CPP) -c ../tinyXML/tinystr.cpp -o obj/tinystr.o $(CXXFLAGS)
+
+obj/tinyxml.o: ../tinyXML/tinyxml.cpp
+	$(CPP) -c ../tinyXML/tinyxml.cpp -o obj/tinyxml.o $(CXXFLAGS)
+
+obj/tinyxmlerror.o: ../tinyXML/tinyxmlerror.cpp
+	$(CPP) -c ../tinyXML/tinyxmlerror.cpp -o obj/tinyxmlerror.o $(CXXFLAGS)
+
+matroska_writer_private.res: matroska_writer_private.rc 
+	$(WINDRES) -i matroska_writer_private.rc -I rc -o matroska_writer_private.res -O coff 

@@ -1,0 +1,51 @@
+# Project: avi_input
+# Makefile created by Dev-C++ 4.9.8.0
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = avi_input_private.res
+OBJ  = avi_input_plugin.o avilib.o ../tinyXML/tinystr.o ../tinyXML/tinyxml.o ../tinyXML/tinyxmlerror.o ../tinyXML/tinyxmlparser.o $(RES)
+LINKOBJ  = avi_input_plugin.o avilib.o ../tinyXML/tinystr.o ../tinyXML/tinyxml.o ../tinyXML/tinyxmlerror.o ../tinyXML/tinyxmlparser.o $(RES)
+LIBS =  -L"E:/DEV-CPP/lib" --def avi_input_plugin.def -k --mno-cygwin -s 
+INCS =  -I"E:/DEV-CPP/include"  -I"../tinyxml/" 
+CXXINCS =  -I"E:/DEV-CPP/include/c++"  -I"E:/DEV-CPP/include/c++/mingw32"  -I"E:/DEV-CPP/include/c++/backward"  -I"E:/DEV-CPP/include"  -I"../tinyxml/" 
+BIN  = avi_input.dll
+CXXFLAGS = $(CXXINCS)-DBUILDING_DLL=1 -D__GNUWIN32__   -fexceptions -fexpensive-optimizations -O3
+CFLAGS = $(INCS)-DBUILDING_DLL=1 -D__GNUWIN32__   -fexceptions -fexpensive-optimizations -O3
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before avi_input.dll all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+DLLWRAP=dllwrap.exe
+DEFFILE=libavi_input.def
+STATICLIB=libavi_input.a
+
+$(BIN): $(LINKOBJ)
+	$(DLLWRAP) --output-def $(DEFFILE) --driver-name c++ --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+
+avi_input_plugin.o: avi_input_plugin.cpp
+	$(CPP) -c avi_input_plugin.cpp -o avi_input_plugin.o $(CXXFLAGS)
+
+avilib.o: avilib.c
+	$(CPP) -c avilib.c -o avilib.o $(CXXFLAGS)
+
+../tinyXML/tinystr.o: ../tinyXML/tinystr.cpp
+	$(CPP) -c ../tinyXML/tinystr.cpp -o ../tinyXML/tinystr.o $(CXXFLAGS)
+
+../tinyXML/tinyxml.o: ../tinyXML/tinyxml.cpp
+	$(CPP) -c ../tinyXML/tinyxml.cpp -o ../tinyXML/tinyxml.o $(CXXFLAGS)
+
+../tinyXML/tinyxmlerror.o: ../tinyXML/tinyxmlerror.cpp
+	$(CPP) -c ../tinyXML/tinyxmlerror.cpp -o ../tinyXML/tinyxmlerror.o $(CXXFLAGS)
+
+../tinyXML/tinyxmlparser.o: ../tinyXML/tinyxmlparser.cpp
+	$(CPP) -c ../tinyXML/tinyxmlparser.cpp -o ../tinyXML/tinyxmlparser.o $(CXXFLAGS)
+
+avi_input_private.res: avi_input_private.rc 
+	$(WINDRES) -i avi_input_private.rc -I rc -o avi_input_private.res -O coff 

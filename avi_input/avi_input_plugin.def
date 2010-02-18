@@ -1,0 +1,9 @@
+; dlltool --base-file E:\DOCUME~1\Jory\LOCALS~1\Temp/cca01720.base --output-exp mpa_input.exp --dllname mpa_input.dll --output-def libmpa_input.def --add-stdcall-alias --exclude-symbol=DllMainCRTStartup@12 --def E:\DOCUME~1\Jory\LOCALS~1\Temp/cca01720.def --output-lib libmpa_input.a
+EXPORTS
+	GetLemAPIVersion
+	CreateLemAPIProcess
+	ReadFileHeaders
+	GetTrackInfoXML_ASCII
+	GetNextDataFrame
+	FreeDataFrame
+	DeleteLemAPIProcess

@@ -1,0 +1,135 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: libebml - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP189.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "WRITE_EVEN_UNSET_DATA" /Fp"Release/libebml.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Visual Studio Projects\matroska\libebml\src\Debug.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlBinary.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlContexts.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlCrc32.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlDate.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlElement.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlFloat.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlHead.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlMaster.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlSInteger.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlStream.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlString.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlSubHead.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlUInteger.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlUnicodeString.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlVersion.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\EbmlVoid.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\IOCallback.cpp"
+"C:\Visual Studio Projects\matroska\libebml\src\StdIOCallback.cpp"
+]
+Creating command line "cl.exe @E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP189.tmp" 
+Creating temporary file "E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP18A.tmp" with contents
+[
+/nologo /out:"Release\libebml.lib" 
+".\Release\Debug.obj"
+".\Release\EbmlBinary.obj"
+".\Release\EbmlContexts.obj"
+".\Release\EbmlCrc32.obj"
+".\Release\EbmlDate.obj"
+".\Release\EbmlElement.obj"
+".\Release\EbmlFloat.obj"
+".\Release\EbmlHead.obj"
+".\Release\EbmlMaster.obj"
+".\Release\EbmlSInteger.obj"
+".\Release\EbmlStream.obj"
+".\Release\EbmlString.obj"
+".\Release\EbmlSubHead.obj"
+".\Release\EbmlUInteger.obj"
+".\Release\EbmlUnicodeString.obj"
+".\Release\EbmlVersion.obj"
+".\Release\EbmlVoid.obj"
+".\Release\IOCallback.obj"
+".\Release\StdIOCallback.obj"
+]
+Creating command line "link.exe -lib @E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP18A.tmp"
+<h3>Output Window</h3>
+Compiling...
+Debug.cpp
+EbmlBinary.cpp
+EbmlContexts.cpp
+EbmlCrc32.cpp
+EbmlDate.cpp
+EbmlElement.cpp
+EbmlFloat.cpp
+EbmlHead.cpp
+EbmlMaster.cpp
+EbmlSInteger.cpp
+EbmlStream.cpp
+EbmlString.cpp
+EbmlSubHead.cpp
+EbmlUInteger.cpp
+EbmlUnicodeString.cpp
+EbmlVersion.cpp
+EbmlVoid.cpp
+IOCallback.cpp
+StdIOCallback.cpp
+Creating library...
+<h3>
+--------------------Configuration: mpa_input_plugin - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP18B.tmp" with contents
+[
+/nologo /MT /W3 /GX /Ob1 /Gy /I "..\..\libebml\src" /I "..\tinyXML" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "PLUGIN_EXPORTS" /D "_MBCS" /Fo".\Release/" /GF PRECOMP_VC7_TOBEREMOVED /c 
+"C:\Visual Studio Projects\matroska\LemAPI\mpa_input\mpa_input_plugin.cpp"
+"C:\Visual Studio Projects\matroska\LemAPI\mpa_input\mpafile.cpp"
+"C:\Visual Studio Projects\matroska\LemAPI\mpa_input\mpaframe.cpp"
+"C:\Visual Studio Projects\matroska\LemAPI\mpa_input\mpiframe.cpp"
+"C:\Visual Studio Projects\matroska\LemAPI\tinyXML\tinystr.cpp"
+"C:\Visual Studio Projects\matroska\LemAPI\tinyXML\tinyxml.cpp"
+"C:\Visual Studio Projects\matroska\LemAPI\tinyXML\tinyxmlerror.cpp"
+"C:\Visual Studio Projects\matroska\LemAPI\tinyXML\tinyxmlparser.cpp"
+]
+Creating command line "cl.exe @E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP18B.tmp" 
+Creating temporary file "E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP18C.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:no /pdb:".\Release/mpa_input_plugin.pdb" /machine:I386 /def:".\mpa_input_plugin.def" /out:".\Release/mpa_input_plugin.dll" /implib:".\Release/mpa_input_plugin.lib" /pdbtype:sept 
+".\Release\mpa_input_plugin.obj"
+".\Release\mpafile.obj"
+".\Release\mpaframe.obj"
+".\Release\mpiframe.obj"
+".\Release\tinystr.obj"
+".\Release\tinyxml.obj"
+".\Release\tinyxmlerror.obj"
+".\Release\tinyxmlparser.obj"
+"\Visual Studio Projects\matroska\libebml\make\vc6\lib\static\Release\libebml.lib"
+]
+Creating command line "link.exe @E:\DOCUME~1\Jory\LOCALS~1\Temp\RSP18C.tmp"
+<h3>Output Window</h3>
+Compiling...
+Command line warning D4002 : ignoring unknown option '/Ob1'
+Command line warning D4024 : unrecognized source file type 'PRECOMP_VC7_TOBEREMOVED', object file assumed
+Command line warning D4027 : source file 'PRECOMP_VC7_TOBEREMOVED' ignored
+mpa_input_plugin.cpp
+C:\Visual Studio Projects\matroska\LemAPI\mpa_input\mpa_input_plugin.cpp(193) : warning C4101: 'Ex' : unreferenced local variable
+C:\Visual Studio Projects\matroska\LemAPI\mpa_input\mpa_input_plugin.cpp(226) : warning C4101: 'Ex' : unreferenced local variable
+mpafile.cpp
+mpaframe.cpp
+mpiframe.cpp
+tinystr.cpp
+tinyxml.cpp
+tinyxmlerror.cpp
+tinyxmlparser.cpp
+Generating Code...
+Linking...
+   Creating library .\Release/mpa_input_plugin.lib and object .\Release/mpa_input_plugin.exp
+
+
+
+<h3>Results</h3>
+mpa_input_plugin.dll - 0 error(s), 5 warning(s)
+</pre>
+</body>
+</html>

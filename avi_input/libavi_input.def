@@ -1,0 +1,9 @@
+; dlltool --base-file E:\DOCUME~1\Jory\LOCALS~1\Temp/cca01856.base --output-exp avi_input.exp --dllname avi_input.dll --output-def libavi_input.def -k --exclude-symbol=DllMainCRTStartup@12 --def avi_input_plugin.def --output-lib libavi_input.a
+EXPORTS
+	DeleteLemAPIProcess @ 1 ; 
+	FreeDataFrame @ 2 ; 
+	GetLemAPIVersion @ 3 ; 
+	GetNextDataFrame @ 4 ; 
+	GetTrackInfoXML_ASCII @ 5 ; 
+	ReadFileHeaders @ 6 ; 
+	CreateLemAPIProcess @ 7 ; 
